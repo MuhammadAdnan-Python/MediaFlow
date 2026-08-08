@@ -23,9 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2m0o91zb7hxv&_u6c+exf+k@&03b*@2aki1v!l71@bpm&h37_*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "mediaflow-2ivu.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
