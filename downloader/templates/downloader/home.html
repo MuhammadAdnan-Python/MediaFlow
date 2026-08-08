@@ -1,0 +1,469 @@
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediaFlow — Download Your Media</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+
+            <a href="/" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span>Media<span>Flow</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                ☾
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-glow glow-one"></div>
+            <div class="hero-glow glow-two"></div>
+
+            <div class="container hero-content">
+
+                <div class="badge">
+                    <span class="status-dot"></span>
+                    Fast &amp; Powerful Media Tool
+                </div>
+
+                <h1>
+                    Your Media.
+                    <span>Your Way.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Download authorized content with a fast, clean,
+                    and modern experience.
+                </p>
+
+
+                <!-- URL BOX -->
+                <div class="url-wrapper">
+
+                    <div class="url-box">
+
+                        <span class="url-icon">🔗</span>
+
+                        <input
+                            type="url"
+                            id="mediaUrl"
+                            placeholder="Paste your authorized URL here..."
+                            autocomplete="off"
+                        >
+
+                        <button id="analyzeBtn">
+                            <span>Analyze</span>
+                            <span class="arrow">→</span>
+                        </button>
+
+                    </div>
+
+                    <p class="input-hint">
+                        Paste a supported URL to get started
+                    </p>
+                    <!-- RESULT CARD -->
+<section class="result-section" id="resultSection">
+
+    <div class="result-card">
+
+        <div class="result-media">
+            <img id="resultThumbnail" alt="Media thumbnail" style="display: none;">
+        </div>
+
+        <div class="result-info">
+
+            <span class="result-label">MEDIA FOUND</span>
+
+            <h2 id="resultTitle">Media Title</h2>
+
+            <div class="result-meta">
+
+                <span>
+                    👤 <strong id="resultUploader">Unknown</strong>
+                </span>
+
+                <span>
+                    ⏱️ <strong id="resultDuration">--:--</strong>
+                </span>
+
+            </div>
+
+            <div class="result-divider"></div>
+
+            <div class="format-area">
+
+                <div class="format-heading">
+                    <span>AVAILABLE QUALITY</span>
+                    <small>Select your preferred quality</small>
+                </div>
+
+                <div class="quality-options" id="qualityOptions">
+</div>
+            </div>
+
+            <button class="download-btn" id="downloadBtn">
+
+                <span>⬇</span>
+
+                <span>Download</span>
+
+                <span class="download-arrow">→</span>
+
+            </button>
+            <div id="downloadProgressBox" class="download-progress-box">
+
+
+<div class="download-progress-header">
+
+    <span id="downloadStatus">
+        Preparing download...
+    </span>
+
+    <span id="downloadPercentage">
+        0%
+    </span>
+
+</div>
+
+
+<div class="progress-track">
+
+    <div
+        id="downloadProgressBar"
+        class="progress-bar"
+        style="width: 0%;"
+    ></div>
+
+</div>
+
+
+<div class="download-progress-info">
+
+    <span id="downloadSize">
+        0 MB / 0 MB
+    </span>
+
+    <span id="downloadSpeed">
+        0 MB/s
+    </span>
+
+    <span id="downloadEta">
+        ETA --:--
+    </span>
+
+</div>
+
+
+</div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+                </div>
+
+
+                <!-- FEATURES MINI -->
+                <div class="hero-features">
+
+                    <div class="mini-feature">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Fast</strong>
+                            <small>Quick processing</small>
+                        </div>
+                    </div>
+
+                    <div class="mini-feature">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Quality</strong>
+                            <small>Multiple qualities</small>
+                        </div>
+                    </div>
+
+                    <div class="mini-feature">
+                        <span>🔒</span>
+                        <div>
+                            <strong>Secure</strong>
+                            <small>Privacy focused</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a href="#features" class="scroll-hint">
+                    <span>↓</span>
+                    Explore features
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- FEATURES -->
+        <section class="section" id="features">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">WHY MEDIAFLOW</span>
+
+                    <h2>
+                        Everything you need.
+                        <span>Nothing you don't.</span>
+                    </h2>
+
+                    <p>
+                        Built around speed, simplicity and a smooth user experience.
+                    </p>
+                </div>
+
+
+                <div class="feature-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Processing</h3>
+                        <p>
+                            Get your authorized media processed efficiently
+                            without unnecessary steps.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Quality Options</h3>
+                        <p>
+                            Choose from available formats and quality options
+                            when supported.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy Focused</h3>
+                        <p>
+                            Keep temporary processing data limited and clean
+                            up files when they are no longer needed.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>Clean Experience</h3>
+                        <p>
+                            No complicated interface. Everything is designed
+                            to feel clear and intuitive.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+        <section class="section workflow-section" id="how-it-works">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">HOW IT WORKS</span>
+
+                    <h2>
+                        Three steps.
+                        <span>That's it.</span>
+                    </h2>
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="step-number">01</div>
+
+                        <div>
+                            <h3>Paste URL</h3>
+                            <p>
+                                Enter an authorized media URL.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+                        <div class="step-number">02</div>
+
+                        <div>
+                            <h3>Analyze</h3>
+                            <p>
+                                MediaFlow checks the available information.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+                        <div class="step-number">03</div>
+
+                        <div>
+                            <h3>Download</h3>
+                            <p>
+                                Select an available option and download it.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAQ -->
+        <section class="section faq-section" id="faq">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">FAQ</span>
+
+                    <h2>
+                        Frequently asked
+                        <span>questions.</span>
+                    </h2>
+                </div>
+
+
+                <div class="faq-list">
+
+                    <details>
+                        <summary>
+                            What can I download?
+                            <span>+</span>
+                        </summary>
+
+                        <p>
+                            Only use MediaFlow with content you own,
+                            have permission to download, or that is
+                            otherwise authorized for downloading.
+                        </p>
+                    </details>
+
+
+                    <details>
+                        <summary>
+                            Is MediaFlow free?
+                            <span>+</span>
+                        </summary>
+
+                        <p>
+                            The basic version of the project is designed
+                            as a free educational web application.
+                        </p>
+                    </details>
+
+
+                    <details>
+                        <summary>
+                            Will it work on mobile?
+                            <span>+</span>
+                        </summary>
+
+                        <p>
+                            Yes. The interface will be fully responsive
+                            for desktop, tablet and mobile screens.
+                        </p>
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+                <a href="/" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span>Media<span>Flow</span></span>
+                </a>
+
+                <p>
+                    A modern media processing project.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+            © 2026 MediaFlow. Built for authorized content.
+        </div>
+
+    </footer>
+
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <span>⚠</span>
+        <p id="toastMessage"></p>
+    </div>
+
+
+    <script src="{% static 'js/app.js' %}"></script>
+
+</body>
+</html>
+```
