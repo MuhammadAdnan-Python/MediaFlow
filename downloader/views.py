@@ -1,4 +1,5 @@
 
+from django.conf import settings
 from django.shortcuts import render
 from django.http import JsonResponse, FileResponse
 
@@ -14,6 +15,8 @@ import json
 # ========================================
 
 FFMPEG_PATH = r"D:\ffmpeg-master-latest-win64-gpl-shared\bin"
+
+COOKIE_FILE_PATH = os.path.join(settings.BASE_DIR, "cookies.txt")
 
 
 # ========================================
@@ -429,6 +432,8 @@ def run_download(
 
             "no_warnings":
                 True,
+            "cookiefile":
+                COOKIE_FILE_PATH,
 
             "progress_hooks":
                 [
@@ -686,6 +691,7 @@ def analyze_url(request):
     "no_warnings": False,
     "skip_download": True,
     "noplaylist": True,
+    "cookiefile": COOKIE_FILE_PATH,
 
     "extractor_args": {
         "youtube": {
