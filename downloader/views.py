@@ -804,7 +804,7 @@ def analyze_url(request):
         return JsonResponse(
             {
                 "success": False,
-                "error": "Media analysis failed. Please try another supported URL."
+                "error": str(e)
             },
             status=400
         )
