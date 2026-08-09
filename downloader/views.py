@@ -682,17 +682,17 @@ def analyze_url(request):
     try:
 
         options = {
+    "quiet": False,
+    "no_warnings": False,
+    "skip_download": True,
+    "noplaylist": True,
 
-            "quiet":
-                True,
-
-            "no_warnings":
-                True,
-
-            "skip_download":
-                True,
-
+    "extractor_args": {
+        "youtube": {
+            "player_client": ["web_safari", "android"]
         }
+    },
+}
 
 
         with yt_dlp.YoutubeDL(
@@ -804,7 +804,7 @@ def analyze_url(request):
         return JsonResponse(
             {
                 "success": False,
-                "error": str(e)
+                "error": "Media analysis failed. Please try another supported URL."
             },
             status=400
         )
