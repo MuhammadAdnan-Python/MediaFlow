@@ -798,12 +798,13 @@ def analyze_url(request):
 
 
     except Exception as e:
+
         print("ANALYZE ERROR:", str(e))
 
         return JsonResponse(
             {
                 "success": False,
-                "error": "This media source could not be analyzed right now."
+                "error": "Media analysis failed. Please try another supported URL."
             },
             status=400
         )
